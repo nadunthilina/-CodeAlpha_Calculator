@@ -1,0 +1,137 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+}
+
+body {
+    background: linear-gradient(to right, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.calculator {
+    background-color: rgba(0, 0, 0, 0.75);
+    border-radius: 10px;
+    width: 350px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+    padding: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: width 0.3s ease;
+}
+
+/* Scientific mode - wider layout */
+.calculator.scientific-mode {
+    width: 350px;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.display {
+    grid-column: span 4;
+    background-color: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+    text-align: right;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    min-height: 80px;
+}
+
+#prev-operand {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 1.2rem;
+}
+
+#current-operand {
+    color: #000;
+    font-size: 2rem;
+}
+
+button {
+    cursor: pointer;
+    font-size: 1.5rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    padding: 15px;
+    transition: all 0.2s ease;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.span-two {
+    grid-column: span 2;
+}
+
+.number {
+    background-color: #e0e0e0;
+    color: #333;
+}
+
+.operation {
+    background-color: #f8a51b;
+    color: white;
+}
+
+#clear, #delete {
+    background-color: #f44336;
+    color: white;
+}
+
+#equals {
+    background-color: #4caf50;
+    color: white;
+}
+
+.scientific-btn {
+    display: none;
+}
+
+.calculator.scientific-mode .scientific-btn {
+    display: block;
+}
+
+.calculator-toggle {
+    grid-column: span 4;
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.toggle-btn {
+    flex: 1;
+    padding: 8px;
+    font-size: 1rem;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.toggle-btn:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.toggle-btn:last-child {
+    border-radius: 0 5px 5px 0;
+}
+
+.toggle-btn.active {
+    background-color: #4caf50;
+}
